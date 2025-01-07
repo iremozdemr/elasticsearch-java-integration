@@ -1,0 +1,5 @@
+com/example/App.class
+com/example/Product.class
+com/example/DataSeeder.class
+com/example/ProductSearch.class
+com/example/ElasticsearchService.class
