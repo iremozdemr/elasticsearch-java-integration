@@ -27,4 +27,32 @@ public class DataSeeder {
                          .document(product));
         System.out.println("added product " + response.id());
     }
+
+    public void updateProductPrice(String productId, double newPrice) throws IOException {
+        esService.getClient().update(u -> u
+            .index("products")
+            .id(productId)
+            .doc(new Product(productId, null, null, newPrice)),
+            Product.class
+        );
+        System.out.println("updated product price for id: " + productId);
+    }
+
+    public void updateProductCategory(String productId, String newCategory) throws IOException {
+        esService.getClient().update(u -> u
+            .index("products")
+            .id(productId)
+            .doc(new Product(productId, null, newCategory, 0)),
+            Product.class
+        );
+        System.out.println("updated product category for id: " + productId);
+    }
+
+    public void deleteProduct(String productId) throws IOException {
+        esService.getClient().delete(d -> d
+            .index("products")
+            .id(productId)
+        );
+        System.out.println("deleted product with id: " + productId);
+    }  
 }

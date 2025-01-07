@@ -14,7 +14,7 @@ public class ElasticsearchService {
     private final RestClient restClient;
 
     public ElasticsearchService() {
-        String serverUrl = "https://9cc812ee62e2473094bf96c50b687c12.us-central1.gcp.cloud.es.io:443";
+        String serverUrl = "";
         String apiKey = "";
 
         restClient = RestClient.builder(HttpHost.create(serverUrl))
